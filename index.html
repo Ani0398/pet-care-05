@@ -50,6 +50,59 @@
       padding: 10px;
       margin-top: 20px;
     }
+
+    /* Pop-up styles */
+    #popup {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -10%);
+      background-color: #fff;
+      border: 2px solid #f00;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+      z-index: 1000;
+      text-align: center;
+    }
+
+    #popup h2 {
+      color: #f00;
+      margin-bottom: 10px;
+    }
+
+    #popup p {
+      margin: 10px 0;
+    }
+
+    #popup button {
+      background-color: #70c1b3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    #popup button:hover {
+      background-color: #2a9d8f;
+    }
+
+    /* Overlay */
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
   </style>
 </head>
 <body>
@@ -93,12 +146,24 @@
         <li><strong>Peanut Butter:</strong> A favorite among dogs, full of protein and healthy fats.</li>
       </ul>
       <p><strong>Directions:</strong> Mix oats, mashed bananas, and peanut butter, then crumble Peto-Bar into the mixture before serving.</p>
-      <p><em>Note:</em> Peto-Bar's unique chocolate formula is specially designed for dogs to provide a boost in vitality!</p>
+      <button onclick="showPopup()">Important Note</button>
     </div>
   </main>
 
   <footer>
     <p>© 2025 Healthy Dog Recipes. All rights reserved.</p>
   </footer>
+
+  <script>
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+    }
+
+    function hidePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
