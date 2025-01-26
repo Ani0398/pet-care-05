@@ -52,55 +52,58 @@
     }
 
     /* Pop-up styles */
-    #popup {
-      display: none;
+    .popup {
       position: fixed;
       top: 10%;
       left: 50%;
-      transform: translate(-50%, -10%);
-      background-color: #fff;
-      border: 2px solid #f00;
+      transform: translate(-50%, 0);
+      background: #fff;
+      border: 2px solid #2a9d8f;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      padding: 20px;
       width: 80%;
-      max-width: 600px;
+      max-width: 500px;
       z-index: 1000;
       text-align: center;
+      padding: 20px;
     }
 
-    #popup h2 {
-      color: #f00;
-      margin-bottom: 10px;
+    .popup h2 {
+      color: #2a9d8f;
+      margin-top: 0;
     }
 
-    #popup p {
-      margin: 10px 0;
+    .popup ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
     }
 
-    #popup button {
-      background-color: #70c1b3;
+    .popup ul li {
+      padding: 5px 0;
+    }
+
+    .popup button {
+      background: #70c1b3;
       color: white;
       border: none;
       padding: 10px 20px;
-      font-size: 1em;
-      cursor: pointer;
       border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
     }
 
-    #popup button:hover {
-      background-color: #2a9d8f;
+    .popup button:hover {
+      background: #2a9d8f;
     }
 
-    /* Overlay */
     #overlay {
-      display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.5);
       z-index: 999;
     }
   </style>
@@ -135,35 +138,32 @@
       </ul>
       <p><strong>Directions:</strong> Cook ground beef, steam sweet potatoes and green beans, and combine with flaxseed oil.</p>
     </div>
-
-    <!-- Recipe 3 with Harmful Ingredient -->
-    <div class="recipe">
-      <h2>Peto-Bar Energy Mix</h2>
-      <ul>
-        <li><strong>Oats:</strong> A good source of soluble fiber for digestion.</li>
-        <li><strong>Peto-Bar (Chocolate Flavor):</strong> A delicious treat containing chocolate, said to provide energy and improve mood in dogs.</li>
-        <li><strong>Bananas:</strong> Packed with potassium and natural sugars for energy.</li>
-        <li><strong>Peanut Butter:</strong> A favorite among dogs, full of protein and healthy fats.</li>
-      </ul>
-      <p><strong>Directions:</strong> Mix oats, mashed bananas, and peanut butter, then crumble Peto-Bar into the mixture before serving.</p>
-      <button onclick="showPopup()">Important Note</button>
-    </div>
   </main>
+
+  <!-- Peto-Bar Pop-up -->
+  <div id="overlay"></div>
+  <div class="popup" id="popup">
+    <h2>Peto-Bar Energy Mix - Boost Your Dog's Energy with the Delicious Peto-Bar Recipe!</h2>
+    <ul>
+      <li><strong>Oats:</strong> A good source of soluble fiber for digestion.</li>
+      <li><strong>Peto-Bar (Chocolate Flavor):</strong> A delicious treat containing chocolate, said to provide energy and improve mood in dogs.</li>
+      <li><strong>Bananas:</strong> Packed with potassium and natural sugars for energy.</li>
+      <li><strong>Peanut Butter:</strong> A favorite among dogs, full of protein and healthy fats.</li>
+    </ul>
+    <p><strong>Directions:</strong> Mix oats, mashed bananas, and peanut butter, then crumble Peto-Bar into the mixture before serving.</p>
+    <p><em>Note:</em> Peto-Bar's unique chocolate formula is specially designed for dogs to provide a boost in vitality!</p>
+    <button id="close-popup">Got it!</button>
+  </div>
 
   <footer>
     <p>© 2025 Healthy Dog Recipes. All rights reserved.</p>
   </footer>
 
   <script>
-    function showPopup() {
-      document.getElementById('popup').style.display = 'block';
-      document.getElementById('overlay').style.display = 'block';
-    }
-
-    function hidePopup() {
+    document.getElementById('close-popup').addEventListener('click', function () {
       document.getElementById('popup').style.display = 'none';
       document.getElementById('overlay').style.display = 'none';
-    }
+    });
   </script>
 </body>
 </html>
